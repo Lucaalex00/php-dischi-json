@@ -34,11 +34,15 @@ Al click su un disco, recuperare e mostrare i dati del disco selezionato.
 <body>
     <h1>Lista di Dischi :</h1>
     <div id="app">
-        <div class="card" v-for="(disk, index) in diskList" @click="showInfo(disk)"> 
+        <div class="card" v-for="disk in diskList" @click="showInfo(disk)"> 
             <h3>{{disk.title}}</h3>
             <img :src="`${disk.poster}`" alt="IMG">
-            <div v-if="selectedDisk == disk">
-                CIAO
+            <div v-if="selectedDisk == disk && checkInfo==true">
+                <ul>
+                    <li>{{disk.author}}</li>
+                    <li>{{disk.genre}}</li>
+                    <li>{{disk.year}}</li>
+                </ul>
             </div>
         </div>
     </div>
