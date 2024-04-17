@@ -3,7 +3,15 @@ const app = Vue.createApp({
     return {
       diskList: [],
       getDisk_url: "./api.php",
+      selectedDisk: null,
     };
+  },
+  methods: {
+    showInfo(disk) {
+      this.checkInfo = !this.checkInfo;
+      this.selectedDisk = disk;
+      console.log(this.checkInfo);
+    },
   },
   mounted() {
     axios
